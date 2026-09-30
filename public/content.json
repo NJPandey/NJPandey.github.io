@@ -1,0 +1,55 @@
+{
+  "name": "Anjani Kumar Pandey",
+  "role": "Software Engineer",
+  "company": "Celigo",
+  "email": "anjani.kumar.pandey@celigo.com",
+  "github": "https://github.com/anjani-pandey",
+  "intro": "I'm a software engineer at Celigo, where I work on integrator.io - building the backend services that move data between business systems: files, databases, data warehouses, and APIs.",
+  "about": [
+    "Most of my work is in Node.js microservices: adaptor services that speak FTP, S3, MySQL, Oracle, and MongoDB on one side, and the integrator.io platform on the other. That includes the on-premise agent bridge that connects the cloud platform to customer data centers over WebSockets.",
+    "Recently I've been working on the platform's API layer and its Model Context Protocol (MCP) integration, which lets AI coding assistants build integrations directly.",
+    "I also maintain end-to-end API test automation that exercises the live platform - contract validation, flow execution, and data-landing verification."
+  ],
+  "skills": [
+    "Node.js",
+    "Express",
+    "React",
+    "AWS (S3, Lambda, DynamoDB, SQS)",
+    "MongoDB",
+    "MySQL · MariaDB · Oracle",
+    "WebSockets",
+    "Jest · Mocha"
+  ],
+  "projects": [
+    {
+      "title": "Adaptor microservices",
+      "description": "Backend services that move data between integrator.io and external systems - file servers (FTP, SFTP, S3), relational databases (MySQL, MariaDB, Oracle), NoSQL stores, and data warehouses.",
+      "tags": ["Node.js", "Express", "AWS S3", "MySQL", "Oracle"],
+      "link": null
+    },
+    {
+      "title": "Endpoint service & MCP integration",
+      "description": "The API layer of the integrator.io platform, including the Model Context Protocol integration that lets AI coding assistants build integrations programmatically.",
+      "tags": ["Node.js", "Express", "MCP"],
+      "link": null
+    },
+    {
+      "title": "On-premise agent bridge",
+      "description": "Connectivity between the cloud platform and agents running in customer data centers, over authenticated WebSocket channels.",
+      "tags": ["WebSocket", "Express", "Passport"],
+      "link": null
+    },
+    {
+      "title": "API test automation",
+      "description": "End-to-end test suites that run against the live integrator.io APIs - contract validation, backward compatibility, flow execution, and data-landing verification.",
+      "tags": ["Jest", "Chai", "Axios", "Allure"],
+      "link": null
+    },
+    {
+      "title": "AI tooling for integrations",
+      "description": "Domain knowledge and tools for building Celigo integrations with AI coding assistants.",
+      "tags": ["JavaScript", "AI tooling"],
+      "link": "https://github.com/anjani-pandey/ai"
+    }
+  ]
+}
