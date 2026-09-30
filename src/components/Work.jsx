@@ -1,11 +1,15 @@
+import Reveal from './Reveal.jsx'
+
 export default function Work({ items }) {
   return (
     <section className="section container" id="work" aria-labelledby="work-heading">
-      <p className="eyebrow">At Celigo</p>
-      <h2 id="work-heading">What I work on</h2>
+      <Reveal>
+        <p className="eyebrow">At Celigo</p>
+        <h2 id="work-heading">What I work on</h2>
+      </Reveal>
       <ol className="project-list">
         {items.map((item, index) => (
-          <li key={item.title}>
+          <Reveal as="li" key={item.title} delay={Math.min(index, 5) * 70}>
             <article className="project">
               <span className="project-index" aria-hidden="true">
                 {String(index + 1).padStart(2, '0')}
@@ -26,7 +30,7 @@ export default function Work({ items }) {
                 <p className="project-tags">{item.tags.join(' · ')}</p>
               </div>
             </article>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </section>

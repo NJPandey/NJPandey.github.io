@@ -4,10 +4,10 @@ import Projects from '../components/Projects.jsx'
 import About from '../components/About.jsx'
 import Contact from '../components/Contact.jsx'
 
-export default function Home({ content }) {
+export default function Home({ content, theme }) {
   return (
     <>
-      <Hero content={content} />
+      <Hero content={content} theme={theme} />
       <Work items={content.work} />
       <Projects projects={content.projects} />
       <About paragraphs={content.about} skills={content.skills} />

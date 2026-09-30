@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { fetchManifest, formatDate } from '../lib/blog.js'
+import Reveal from '../components/Reveal.jsx'
 
 export default function Blog() {
   const [posts, setPosts] = useState(null)
@@ -34,8 +35,8 @@ export default function Blog() {
       {posts && posts.length === 0 && <p className="muted">No posts yet.</p>}
       {posts && posts.length > 0 && (
         <ol className="post-list">
-          {posts.map((post) => (
-            <li key={post.slug}>
+          {posts.map((post, index) => (
+            <Reveal as="li" key={post.slug} delay={Math.min(index, 5) * 70}>
               <article className="post-card">
                 <p className="post-meta">
                   <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -54,7 +55,7 @@ export default function Blog() {
                   </ul>
                 )}
               </article>
-            </li>
+            </Reveal>
           ))}
         </ol>
       )}

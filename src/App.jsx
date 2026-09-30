@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollToHash from './components/ScrollToHash.jsx'
+import ScrollProgress from './components/ScrollProgress.jsx'
 import Home from './pages/Home.jsx'
 import Blog from './pages/Blog.jsx'
 import Post from './pages/Post.jsx'
@@ -68,9 +69,10 @@ export default function App() {
         onToggleTheme={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
       />
       <ScrollToHash />
+      <ScrollProgress />
       <main id="main">
         <Routes>
-          <Route path="/" element={<Home content={content} />} />
+          <Route path="/" element={<Home content={content} theme={theme} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<Post />} />
           <Route path="*" element={<NotFound />} />
