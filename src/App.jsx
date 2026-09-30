@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
-import ScrollToHash from './components/ScrollToHash.jsx'
 import ScrollProgress from './components/ScrollProgress.jsx'
 import Home from './pages/Home.jsx'
+import WorkPage from './pages/WorkPage.jsx'
+import ProjectsPage from './pages/ProjectsPage.jsx'
+import AboutPage from './pages/AboutPage.jsx'
+import ContactPage from './pages/ContactPage.jsx'
 import Blog from './pages/Blog.jsx'
 import Post from './pages/Post.jsx'
 import NotFound from './pages/NotFound.jsx'
+import { startHueRotation } from './lib/hue.js'
 
 export default function App() {
   const [content, setContent] = useState(null)
@@ -24,6 +28,8 @@ export default function App() {
       // storage unavailable (private mode) - theme simply won't persist
     }
   }, [theme])
+
+  useEffect(() => startHueRotation(), [])
 
   useEffect(() => {
     let active = true
@@ -68,11 +74,14 @@ export default function App() {
         theme={theme}
         onToggleTheme={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
       />
-      <ScrollToHash />
       <ScrollProgress />
       <main id="main">
         <Routes>
           <Route path="/" element={<Home content={content} theme={theme} />} />
+          <Route path="/work" element={<WorkPage content={content} />} />
+          <Route path="/projects" element={<ProjectsPage content={content} />} />
+          <Route path="/about" element={<AboutPage content={content} />} />
+          <Route path="/contact" element={<ContactPage content={content} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<Post />} />
           <Route path="*" element={<NotFound />} />

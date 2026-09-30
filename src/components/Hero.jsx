@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import { Link } from 'react-router-dom'
 
 const NeuralCanvas = lazy(() => import('./NeuralCanvas.jsx'))
 
@@ -17,9 +18,9 @@ export default function Hero({ content, theme }) {
         <h1 id="hero-name">{content.name}</h1>
         <p className="intro">{content.intro}</p>
         <div className="hero-actions">
-          <a className="button button-primary" href="#work">
+          <Link className="button button-primary" to="/work">
             View my work
-          </a>
+          </Link>
           <a className="button button-secondary" href={`mailto:${content.email}`}>
             Get in touch
           </a>

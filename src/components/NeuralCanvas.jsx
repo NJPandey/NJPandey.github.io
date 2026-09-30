@@ -8,8 +8,8 @@ const ROTATION_SPEED = 0.06
 const PULSE_SPEED = 0.45
 
 const THEME_COLORS = {
-  light: { node: 0x0b6b57, nodeOpacity: 0.7, line: 0x14584a, lineOpacity: 0.16, pulse: 0x0b6b57 },
-  dark: { node: 0x3dbe9f, nodeOpacity: 0.75, line: 0xe8e6e1, lineOpacity: 0.12, pulse: 0x3dbe9f }
+  light: { nodeOpacity: 0.7, line: 0x1c1b1a, lineOpacity: 0.16, saturation: 0.55, lightness: 0.32 },
+  dark: { nodeOpacity: 0.75, line: 0xe8e6e1, lineOpacity: 0.12, saturation: 0.6, lightness: 0.62 }
 }
 
 function buildNetwork() {
@@ -76,9 +76,15 @@ export default function NeuralCanvas({ theme }) {
 
     const { nodes, edges } = buildNetwork()
 
+    const accentColor = new THREE.Color().setHSL(
+      getAccentHue() / 360,
+      colors.saturation,
+      colors.lightness
+    )
+
     const nodeGeo = new THREE.SphereGeometry(0.045, 10, 10)
     const nodeMat = new THREE.MeshBasicMaterial({
-      color: colors.node,
+      color: accentColor.clone(),
       transparent: true,
       opacity: colors.nodeOpacity
     })
@@ -102,7 +108,7 @@ export default function NeuralCanvas({ theme }) {
     network.add(new THREE.LineSegments(lineGeo, lineMat))
 
     const pulseGeo = new THREE.SphereGeometry(0.07, 10, 10)
-    const pulseMat = new THREE.MeshBasicMaterial({ color: colors.pulse })
+    const pulseMat = new THREE.MeshBasicMaterial({ color: accentColor.clone() })
     const randomEdge = () => edges[Math.floor(Math.random() * edges.length)]
     const pulses = []
     for (let i = 0; i < PULSE_COUNT; i += 1) {
@@ -137,6 +143,10 @@ export default function NeuralCanvas({ theme }) {
       rafId = requestAnimationFrame(animate)
       if (!inView || document.hidden) return
       const dt = Math.min(clock.getDelta(), 0.05)
+
+      accentColor.setHSL(getAccentHue() / 360, colors.saturation, colors.lightness)
+      nodeMat.color.lerp(accentColor, 0.08)
+      pulseMat.color.lerp(accentColor, 0.08)
 
       network.rotation.y += ROTATION_SPEED * dt
       tilt.rotation.x += (targetTiltX - tilt.rotation.x) * 0.05

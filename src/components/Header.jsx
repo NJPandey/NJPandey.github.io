@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
-const SECTIONS = [
-  { id: 'work', label: 'Work' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'about', label: 'About' },
-  { id: 'contact', label: 'Contact' }
+const NAV_ITEMS = [
+  { to: '/work', label: 'Work' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' }
 ]
 
 function SunIcon() {
@@ -26,27 +26,6 @@ function MoonIcon() {
 }
 
 export default function Header({ name, theme, onToggleTheme }) {
-  const location = useLocation()
-  const onHome = location.pathname === '/'
-  const [activeSection, setActiveSection] = useState('')
-
-  useEffect(() => {
-    if (!onHome) return undefined
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActiveSection(entry.target.id)
-        }
-      },
-      { rootMargin: '-40% 0px -55% 0px' }
-    )
-    for (const { id } of SECTIONS) {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    }
-    return () => observer.disconnect()
-  }, [onHome])
-
   return (
     <header className="site-header">
       <div className="container header-inner">
@@ -55,14 +34,11 @@ export default function Header({ name, theme, onToggleTheme }) {
         </Link>
         <div className="header-actions">
           <nav className="site-nav" aria-label="Primary">
-            {SECTIONS.map(({ id, label }) => (
-              <Link key={id} to={`/#${id}`} className={onHome && activeSection === id ? 'active' : ''}>
+            {NAV_ITEMS.map(({ to, label }) => (
+              <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'active' : '')}>
                 {label}
-              </Link>
+              </NavLink>
             ))}
-            <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Blog
-            </NavLink>
           </nav>
           <button
             type="button"
