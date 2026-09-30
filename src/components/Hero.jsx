@@ -2,7 +2,7 @@ export default function Hero({ content }) {
   return (
     <section className="hero container" id="top" aria-labelledby="hero-name">
       <p className="eyebrow">
-        {content.role} · {content.company}
+        {content.role} · {content.company} · {content.location}
       </p>
       <h1 id="hero-name">{content.name}</h1>
       <p className="intro">{content.intro}</p>

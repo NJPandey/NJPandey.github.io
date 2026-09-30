@@ -3,8 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anjani Kumar Pandey - software engineer at Celigo, working on the backend services of the integrator.io platform." />
+    <meta name="description" content="Anjani Kumar Pandey - Software Engineer 2 at Celigo, working on the backend services of the integrator.io platform." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B6B57'/%3E%3Ctext x='16' y='22' font-family='Georgia, serif' font-size='15' fill='%23FAFAF8' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E" />
+    <script>
+      // Restore the path rewritten by 404.html (SPA fallback on GitHub Pages).
+      (function () {
+        var l = window.location
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?')
+          window.history.replaceState(null, '', '/' + decoded.slice(1) + l.hash)
+        }
+      })()
+    </script>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      (function () {
+        var saved = null
+        try { saved = localStorage.getItem('theme') } catch (e) { /* private mode */ }
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
     <title>Anjani Kumar Pandey - Software Engineer</title>
   </head>
   <body>

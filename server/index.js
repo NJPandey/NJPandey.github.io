@@ -13,7 +13,7 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' })
 })
 
-app.use(express.static(dist))
+app.use(express.static(dist, { redirect: false }))
 app.use((req, res, next) => {
   if (req.method !== 'GET' || req.path.startsWith('/api/')) return next()
   res.sendFile(path.join(dist, 'index.html'))

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      // Single-page-app fallback for GitHub Pages: rewrite the path into a
+      // query string so index.html can restore it client-side.
+      (function () {
+        var l = window.location
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          '/?/' + l.pathname.slice(1).replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        )
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>

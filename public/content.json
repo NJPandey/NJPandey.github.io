@@ -1,10 +1,12 @@
 {
   "name": "Anjani Kumar Pandey",
-  "role": "Software Engineer",
+  "role": "Software Engineer 2",
   "company": "Celigo",
+  "location": "Hyderabad, India",
   "email": "anjpandey1996@gmail.com",
-  "github": "https://github.com/anjani-pandey",
-  "intro": "I'm a software engineer at Celigo, where I work on integrator.io - building the backend services that move data between business systems: files, databases, data warehouses, and APIs.",
+  "github": "https://github.com/NJPandey",
+  "linkedin": "https://www.linkedin.com/in/njpandey",
+  "intro": "I'm a software engineer at Celigo in Hyderabad, where I work on integrator.io - building the backend services that move data between business systems: files, databases, data warehouses, and APIs.",
   "about": [
     "Most of my work is in Node.js microservices: adaptor services that speak FTP, S3, MySQL, Oracle, and MongoDB on one side, and the integrator.io platform on the other. That includes the on-premise agent bridge that connects the cloud platform to customer data centers over WebSockets.",
     "Recently I've been working on the platform's API layer and its Model Context Protocol (MCP) integration, which lets AI coding assistants build integrations directly.",
@@ -20,7 +22,7 @@
     "WebSockets",
     "Jest · Mocha"
   ],
-  "projects": [
+  "work": [
     {
       "title": "Adaptor microservices",
       "description": "Backend services that move data between integrator.io and external systems - file servers (FTP, SFTP, S3), relational databases (MySQL, MariaDB, Oracle), NoSQL stores, and data warehouses.",
@@ -50,6 +52,32 @@
       "description": "Domain knowledge and tools for building Celigo integrations with AI coding assistants.",
       "tags": ["JavaScript", "AI tooling"],
       "link": "https://github.com/anjani-pandey/ai"
+    }
+  ],
+  "projects": [
+    {
+      "title": "React Slack clone",
+      "description": "A clone of Slack built with React and Firebase.",
+      "tags": ["React", "Firebase"],
+      "link": "https://github.com/NJPandey/react-slack-clone"
+    },
+    {
+      "title": "Payment API integration",
+      "description": "Paysafe payment API integration using Node.js.",
+      "tags": ["Node.js", "Handlebars", "Payments"],
+      "link": "https://github.com/NJPandey/payment-api-integration"
+    },
+    {
+      "title": "Todo API in 30 minutes",
+      "description": "A todo API built in 30 minutes as a speed-and-accuracy exercise.",
+      "tags": ["Node.js", "API"],
+      "link": "https://github.com/NJPandey/basic-todoApp-in30minutes"
+    },
+    {
+      "title": "LeetCode May challenge 2020",
+      "description": "Solutions for the 30-day LeetCode May challenge.",
+      "tags": ["Algorithms", "LeetCode"],
+      "link": "https://github.com/NJPandey/may-challenge20"
     }
   ]
 }
