@@ -11,3 +11,10 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 )
+
+clearTimeout(window.__bootWatchdog)
+try {
+  sessionStorage.removeItem('bootRetried')
+} catch {
+  // storage unavailable (private mode)
+}

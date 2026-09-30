@@ -27,9 +27,36 @@
       })()
     </script>
     <title>Anjani Kumar Pandey - Software Engineer</title>
+    <script>
+      // GitHub Pages caches this HTML for up to 10 minutes while hashed JS/CSS
+      // assets are replaced on every deploy. A stale page then requests files
+      // that no longer exist and renders blank. Reload once to fetch fresh HTML;
+      // if that still fails, show a visible fallback instead of a blank page.
+      (function () {
+        function recover() {
+          try {
+            if (sessionStorage.getItem('bootRetried')) return
+            sessionStorage.setItem('bootRetried', '1')
+          } catch (e) { /* storage unavailable */ }
+          window.location.reload()
+        }
+        window.addEventListener('error', function (e) {
+          var t = e.target
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) recover()
+        }, true)
+        window.addEventListener('vite:preloadError', recover)
+        window.__bootWatchdog = setTimeout(function () {
+          var el = document.getElementById('boot-fallback')
+          if (el) el.hidden = false
+        }, 12000)
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <p id="boot-fallback" hidden style="font-family: Georgia, serif; text-align: center; padding: 4rem 1.5rem;">
+      This page did not load correctly. <a href="/">Refresh</a>
+    </p>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
